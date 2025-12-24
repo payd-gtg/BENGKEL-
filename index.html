@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium AutoWorks | Body Repair & Painting Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0A2463; /* Navy Blue Premium */
+            --primary-light: #1E3A8A;
+            --secondary: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6C757D;
+            --gray-dark: #343A40;
+            --accent-blue: #3A86FF;
+            --accent-green: #25D366;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--accent-blue);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-accent {
+            background: var(--accent-blue);
+        }
+        
+        .btn-accent:hover {
+            background: #2A76FF;
+        }
+        
+        .btn-wa {
+            background: var(--accent-green);
+        }
+        
+        .btn-wa:hover {
+            background: #1DA851;
+        }
+        
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            z-index: 1001;
+        }
+        
+        header.scrolled .logo {
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        header.scrolled .nav-links a {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        header.scrolled .mobile-menu-btn {
+            color: var(--primary);
+        }
+        
+        /* HERO SECTION - DIUBAH UNTUK BACKGROUND KUSTOM */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--secondary);
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        /* Background Options Container */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* VIDEO BACKGROUND - SILAHKAN GANTI SRC DENGAN VIDEO ANDA */
+        #hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* IMAGE BACKGROUND ALTERNATIF - SILAHKAN GANTI URL DENGAN GAMBAR ANDA */
+        .hero-image-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Overlay untuk kontras teks */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 36, 99, 0.85),
+                rgba(10, 36, 99, 0.7)
+            );
+            z-index: 2;
+        }
+        
+        /* Pattern overlay untuk efek premium */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        /* Hero Content Styling */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* BRAND/PARTNER SECTION */
+        .brand-section {
+            background-color: var(--gray-light);
+            padding: 50px 0;
+        }
+        
+        .brand-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .brand-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .brand-logo {
+            height: 60px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .brand-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        /* PORTFOLIO SECTION */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 36, 99, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .view-icon {
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .view-more-container {
+            text-align: center;
+        }
+        
+        /* MODAL/GALLERY STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: -10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            color: var(--accent-blue);
+            transform: scale(1.1);
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .modal-prev, .modal-next {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-prev:hover, .modal-next:hover {
+            background: var(--accent-blue);
+            transform: scale(1.1);
+        }
+        
+        .modal-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        /* NEW PROJECTS SECTION */
+        .projects-section {
+            background-color: var(--gray-light);
+        }
+        
+        .projects-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 10px;
+            scrollbar-width: thin;
+        }
+        
+        .projects-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .projects-slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .projects-slider::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .project-card {
+            min-width: 320px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+        }
+        
+        /* ABOUT/SERVICE HIGHLIGHT */
+        .about-section {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h2 {
+            color: white;
+            font-size: 2.2rem;
+        }
+        
+        .about-content h2::after {
+            background: var(--accent-blue);
+        }
+        
+        .service-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .service-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .service-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* WHY CHOOSE US */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+        }
+        
+        /* CONTACT & LOCATION */
+        .contact-section {
+            background-color: var(--gray-light);
+        }
+        
+        .location-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .location-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .location-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .location-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .location-content {
+            padding: 30px;
+        }
+        
+        .location-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .location-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* FAQ SECTION */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            background: var(--primary);
+            color: white;
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            background: white;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 25px;
+            max-height: 500px;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 0 15px;
+        }
+        
+        .testimonial-rating {
+            color: #FFC107;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* CUSTOMER LOGOS */
+        .customer-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .customer-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .customer-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .customer-logo img {
+            max-height: 50px;
+            max-width: 100%;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-blue);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-blue);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent-blue);
+            width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE DESIGN - OPTIMASI MOBILE */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Navbar Mobile */
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .nav-links a {
+                color: var(--primary);
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Hero Section Mobile */
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                padding: 12px 24px;
+            }
+            
+            /* Video optimization for mobile */
+            #hero-video {
+                object-position: center;
+            }
+            
+            /* Section spacing mobile */
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* Portfolio grid mobile */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* Modal mobile optimizations */
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+            
+            .modal-nav {
+                padding: 0 10px;
+            }
+            
+            .modal-prev, .modal-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .modal-close {
+                top: -50px;
+                right: 0;
+                font-size: 2rem;
+            }
+            
+            /* Projects slider mobile */
+            .project-card {
+                min-width: 280px;
+            }
+            
+            /* Features grid mobile */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-item {
+                padding: 30px 20px;
+            }
+            
+            /* Location container mobile */
+            .location-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            /* Testimonial mobile */
+            .testimonial-item {
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+            
+            /* Footer mobile */
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                max-width: 250px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .location-buttons {
+                flex-direction: column;
+            }
+            
+            .location-buttons .btn {
+                width: 100%;
+            }
+            
+            /* Modal untuk mobile kecil */
+            .modal-img {
+                max-height: 70vh;
+            }
+            
+            .modal-counter {
+                font-size: 1rem;
+                bottom: -30px;
+            }
+        }
+        
+        /* Optimasi untuk Android khusus */
+        @media (max-width: 480px) and (orientation: portrait) {
+            .hero {
+                height: 85vh;
+                min-height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+            
+            /* Perbaikan tap target untuk mobile */
+            .btn, .faq-question, .nav-links a, .portfolio-item {
+                min-height: 44px;
+            }
+            
+            .portfolio-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Optimasi font size untuk mobile */
+            body {
+                font-size: 15px;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Landscape mode optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+            
+            /* Modal landscape optimization */
+            .modal-img {
+                max-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVBAR -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">AUTOTRICZ<span> X FD AUTO</span></a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - BACKGROUND KUSTOM -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>SPESIALIS PERBAIKAN DAN PENGECATAN BODY MOBIL</h1>
+            <p>Spesialis reparasi dan pengecatan bodi profesional dengan standar premium. Kami mengembalikan kendaraan ke kondisi aslinya dengan presisi dan hati-hati.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-accent">Book Service</a>
+                <a href="#portfolio" class="btn">View Portfolio</a>
+            </div>
+        </div>
+        
+        <!-- BACKGROUND AREA - PILIH SALAH SATU -->
+        <div class="hero-background">
+            <!-- PILIHAN 1: VIDEO BACKGROUND -->
+            <!-- GANTI "src" DENGAN LINK VIDEO ANDA -->
+            <video autoplay muted loop playsinline id="hero-video">
+                <source src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- PILIHAN 2: IMAGE BACKGROUND -->
+            <!-- UNCOMMENT BARIS DIBAWAH INI JIKA MAU PAKAI GAMBAR -->
+            <div class="hero-image-bg" style="background-image: url('img/home.jpeg');"></div>
+        </div>
+    </section>
+
+    <!-- BRAND/PARTNER SECTION -->
+    <section class="brand-section">
+        <div class="container">
+            <h3 class="brand-title">Dipercaya oleh Merek & Mitra Terkemuka</h3>
+            <div class="brand-logos">
+                <div class="brand-logo"><i class="fas fa-car" style="font-size: 3rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-paint-roller" style="font-size: 3rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-award" style="font-size: 3rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-tools" style="font-size: 3rem; color: var(--primary);"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>Menampilkan proyek restorasi dan pengecatan terbaik kami</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-index="0">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg" alt="Car Restoration Project">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="1">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg" alt="Car Painting Project">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="2">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg" alt="Luxury Car Repair">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="3">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Porsche Repair Detail">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="4">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg" alt="Mercedes Paint Job">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="5">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg" alt="BMW Restoration">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-more-container">
+                <a href="#" class="btn">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL/GALLERY UNTUK PORTFOLIO -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage" src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Portfolio Image">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-nav">
+                <button class="modal-prev" id="modalPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal-next" id="modalNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="modal-counter" id="modalCounter">1 / 6</div>
+        </div>
+    </div>
+
+    <!-- NEW PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Projects</h2>
+                <p>Karya terbaru dari bengkel kami</p>
+            </div>
+            
+            <div class="projects-slider">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="BMW Restoration">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Full Body Painting</span>
+                        <h3 class="project-title">Mobil Sedan</h3>
+                        <p>Perbaikan full body dan pengecatan custom dengan lapisan keramik.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Mercedes Painting">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Premium Painting</span>
+                        <h3 class="project-title">Honda City</h3>
+                        <p>Warna cat premium dan finishing detail.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Porsche Repair">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Pemasangan Biled</span>
+                        <h3 class="project-title">Nissan Tiida (C11)</h3>
+                        <p>Pemasangan lampu biled </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT/SERVICE HIGHLIGHT -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Our Workshop">
+                </div>
+                <div class="about-content">
+                    <h2>Layanan kami</h2>
+                    <p>Dengan pengalaman lebih dari 15 tahun, kami berspesialisasi dalam layanan perbaikan dan pengecatan bodi otomotif kelas atas. Tim teknisi handal kami hanya menggunakan bahan dan peralatan terbaik.</p>
+                    
+                    <ul class="service-list">
+                        <li>Perbaikan Bodi & Penghapusan Penyok</li>
+                        <li>Full Painting & Pencocokan Warna</li>
+                        <li>Pemolesan & Detail</li>
+                        <li>Membersihkan Mika lampu Yang Menguning</li>
+                        <li>Ceramic Coating & Perlindungan Cat</li>
+                        <li>Pemasangan Biled Dengan Kualitas Premium</li>
+                    </ul>
+                    
+                    <a href="#location" class="btn btn-accent">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mengapa Memilih Kami</h2>
+                <p>Kualitas premium dan standar layanan yang luar biasa</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Teknisi Profesional</h3>
+                    <p>Ahli dengan pengalaman bertahun-tahun dalam perbaikan otomotif premium.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Peralatan Modern</h3>
+                    <p>Peralatan dan teknologi tercanggih untuk pekerjaan presisi.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Kualitas Cat Premium</h3>
+                    <p>menggunakan cat Yang bagus .</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Layanan Garansi</h3>
+                    <p>Garansi komprehensif atas semua pekerjaan kami untuk ketenangan pikiran Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section class="contact-section" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak & Lokasi</h2>
+                <p>Kunjungi tempat kami</p>
+            </div>
+            
+            <div class="location-container">
+                <div class="location-card">
+                    <div class="location-img">
+                        <img src="img/home.jpeg" alt="Main Workshop">
+                    </div>
+                    <div class="location-content">
+                        <h3>Bengkel AUTOTRICZ X FDAUTO</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Sukawinatan No.09, Sukajaya, kota palembang</p>
+                        <p><i class="fas fa-phone"></i> +62 898-3712-521</p>
+                        <p><i class="fas fa-clock"></i> Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
+                        
+                        <div class="location-buttons">
+                            <a href="https://maps.app.goo.gl/UtC2nQgKNWP4Z9je8" target="_blank" class="btn">Google Maps</a>
+                            <a href="wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-img">
+                        <img src="img/maop.jpeg" alt="Branch Location">
+                    </div>
+                    <div class="location-content">
+                        <h3>Bengkel Aca Coy</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Lorong Sukarame 1 No.24-14, Duku, Kec. Ilir Tim. II, Kota Palembang, Sumatera Selatan 30111</p>
+                        <p><i class="fas fa-phone"></i> +62 898-3712-521</p>
+                        <p><i class="fas fa-clock"></i>Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
+                        
+                        <div class="location-buttons">
+                            <a href="https://maps.app.goo.gl/qQsAXSCpdwBrS6MQ8" target="_blank" class="btn">Google Maps</a>
+                            <a href="wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pertanyaan yang Sering Diajukan</h2>
+                <p>Dapatkan jawaban atas pertanyaan umum tentang layanan kami</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Berapa waktu penyelesaian tipikal untuk pekerjaan pengecatan penuh?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pekerjaan pengecatan menyeluruh biasanya memakan waktu 5-7 hari kerja tergantung pada ukuran kendaraan dan tingkat persiapan yang diperlukan. Kami memastikan waktu pengeringan dan pengawetan yang tepat untuk hasil akhir yang sempurna.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah Anda menawarkan garansi untuk pekerjaan pengecatan dan perbaikan Anda?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami memberikan garansi 1 tahun untuk semua pekerjaan pengecatan dan garansi 1 tahun untuk Pemasangan biled. Semua jaminan dapat dialihkan dan mencakup cacat bahan dan pengerjaan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Berapa waktu penyelesaian tipikal untuk pekerjaan Pemasangan Biled </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pekerjaan Pemasangan biled biasanya memakan waktu 6-7 jam kerja.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah Anda menangani klaim asuransi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tidak.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Pelanggan</h2>
+                <p>Apa yang klien kami katakan tentang layanan kami</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">""</p>
+                    <p class="testimonial-author">- Andi Wijaya, Business Executive</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER LOGOS -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Corporate Clients</h2>
+                <p>Trusted by leading companies and insurance providers</p>
+            </div>
+            
+            <div class="customer-logos">
+                <div class="customer-logo">
+                    <i class="fas fa-building" style="font-size: 3rem; color: var(--gray);"></i>
+                    <p>Clan Automotive</p>
+                </div>
+                <div class="customer-logo">
+                    <i class="fas fa-car" style="font-size: 3rem; color: var(--gray);"></i>
+                    <p>FDAUTO</p>
+                </div>
+                <div class="customer-logo">
+                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--gray);"></i>
+                    <p>Fahrid</p>
+                </div>
+                <div class="customer-logo">
+                    <i class="fas fa-tachometer-alt" style="font-size: 3rem; color: var(--gray);"></i>
+                    <p>AUTOTRICZ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">AUTOTRICZ<span> X FD AUTO</span></a>
+                    <p>Spesialis reparasi dan pengecatan bodi profesional dengan standar premium. Kami mengembalikan kendaraan ke kondisi aslinya dengan presisi dan hati-hati.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Sukawinatan No.09, Sukajaya, kota palembang</p>
+                    <p><i class="fas fa-phone"></i> +62 898-3712-521</p>
+                    <p><i class="fas fa-envelope"></i> info@AUTOTRICZ.com</p>
+                    <p><i class="fas fa-clock"></i> Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 AUTOTRICZ X FD AUTO. All Rights Reserved. | Professional Body Repair & Painting Specialist</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = [
+            {
+                rating: 5,
+                text: "\"Pelayanan bagus, dijelasin dengan jelas sebelum dikerjakan. Harga masih wajar.\"",
+                author: "- Fahmi Hidayat"
+            },
+            {
+                rating: 5,
+                text: "\"Bengkel langganan, pengerjaan rapi dan tepat waktu.\"",
+                author: "- Andi Saputra"
+            },
+            {
+                rating: 5,
+                text: "\"Sudah beberapa kali masang biled di sini, hasilnya selalu memuaskan. Recomended bengkel di Palembang.\"",
+                author: "- Firmansyah"
+            }
+        ];
+
+        function changeTestimonial() {
+            const testimonialContainer = document.querySelector('.testimonial-item');
+            const testimonial = testimonials[currentTestimonial];
+            
+            testimonialContainer.innerHTML = `
+                <div class="testimonial-rating">
+                    ${'<i class="fas fa-star"></i>'.repeat(testimonial.rating)}
+                </div>
+                <p class="testimonial-text">${testimonial.text}</p>
+                <p class="testimonial-author">${testimonial.author}</p>
+            `;
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+
+        // Change testimonial every 5 seconds
+        setInterval(changeTestimonial, 5000);
+        
+        // Initialize first testimonial
+        changeTestimonial();
+        
+        // ========== PORTFOLIO MODAL/GALLERY FUNCTIONALITY ==========
+        
+        // Portfolio images data
+        const portfolioImages = [
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg",
+                alt: "Car Restoration Project"
+            },
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg",
+                alt: "Car Painting Project"
+            },
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg",
+                alt: "Luxury Car Repair"
+            },
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg",
+                alt: "Porsche Repair Detail"
+            },
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg",
+                alt: "Mercedes Paint Job"
+            },
+            {
+                src: "img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg",
+                alt: "BMW Restoration"
+            }
+        ];
+        
+        // Modal elements
+        const modal = document.getElementById('portfolioModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        const modalCounter = document.getElementById('modalCounter');
+        
+        let currentImageIndex = 0;
+        
+        // Open modal when portfolio item is clicked
+        document.querySelectorAll('.portfolio-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                updateModal();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            });
+        });
+        
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Navigate to previous image
+        modalPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+            updateModal();
+        });
+        
+        // Navigate to next image
+        modalNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+            updateModal();
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else if (e.key === 'ArrowLeft') {
+                currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+                updateModal();
+            } else if (e.key === 'ArrowRight') {
+                currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+                updateModal();
+            }
+        });
+        
+        // Update modal content
+        function updateModal() {
+            const image = portfolioImages[currentImageIndex];
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
+            modalCounter.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
+        }
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        modal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        modal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next image
+                    currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+                } else {
+                    // Swipe right - previous image
+                    currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+                }
+                updateModal();
+            }
+        }
+        
+        // Optimasi untuk mobile - mencegah zoom pada input focus
+        document.addEventListener('DOMContentLoaded', function() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // Set viewport untuk mobile
+                let viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+                
+                // Optimasi video untuk mobile
+                const heroVideo = document.getElementById('hero-video');
+                if (heroVideo) {
+                    heroVideo.setAttribute('playsinline', '');
+                    heroVideo.setAttribute('muted', '');
+                    heroVideo.setAttribute('autoplay', '');
+                    
+                    // Fallback jika autoplay tidak bekerja
+                    setTimeout(() => {
+                        if (heroVideo.paused) {
+                            heroVideo.play().catch(e => console.log('Autoplay prevented:', e));
+                        }
+                    }, 1000);
+                }
+            }
+        });
+        
+        // Touch event optimization untuk mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Optimasi scroll untuk mobile
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Hide/show navbar berdasarkan scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll down
+                document.getElementById('header').style.transform = 'translateY(-100%)';
+            } else {
+                // Scroll up
+                document.getElementById('header').style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+    </script>
+</body>
+</html>
