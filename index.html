@@ -2,8 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autotricz X FDauto | Body Repair, Painting & Automotive Lighting Specialist</title>
+    <!-- Optimasi viewport untuk mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>AUTOTRICZ | Body Repair & Painting Specialist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -39,6 +40,7 @@
             color: var(--gray-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%; /* Mencegah zoom teks otomatis di iOS */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -52,20 +54,21 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            padding: 0 10px;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
@@ -75,7 +78,7 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 70px;
+            width: 60px;
             height: 4px;
             background: var(--accent-blue);
             bottom: -10px;
@@ -85,7 +88,7 @@
         
         .btn {
             display: inline-block;
-            padding: 14px 32px;
+            padding: 14px 28px;
             background: var(--primary);
             color: white;
             border-radius: var(--border-radius);
@@ -96,6 +99,8 @@
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
+            min-height: 50px;
+            min-width: 44px; /* Ukuran tap target minimum untuk mobile */
         }
         
         .btn:hover {
@@ -128,28 +133,35 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
+            background-color: rgba(10, 36, 99, 0.95);
+            height: 70px;
+            display: flex;
+            align-items: center;
         }
         
         header.scrolled {
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
+            height: 70px;
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            width: 100%;
+            height: 100%;
         }
         
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--secondary);
             text-decoration: none;
             z-index: 1001;
+            white-space: nowrap;
         }
         
         header.scrolled .logo {
@@ -166,16 +178,17 @@
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 25px;
         }
         
         .nav-links a {
             color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition);
             position: relative;
+            padding: 5px 0;
         }
         
         header.scrolled .nav-links a {
@@ -188,7 +201,7 @@
             width: 0;
             height: 2px;
             background: var(--accent-blue);
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
             transition: var(--transition);
         }
@@ -209,21 +222,27 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
         }
         
         header.scrolled .mobile-menu-btn {
             color: var(--primary);
         }
         
-        /* HERO SECTION - DIUBAH UNTUK BACKGROUND KUSTOM */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
+            min-height: 700px;
             position: relative;
             display: flex;
             align-items: center;
             color: var(--secondary);
             text-align: center;
             overflow: hidden;
+            padding-top: 70px; /* Offset untuk fixed header */
         }
         
         .hero-content {
@@ -235,7 +254,7 @@
             width: 100%;
         }
         
-        /* Background Options Container */
+        /* Background Container */
         .hero-background {
             position: absolute;
             top: 0;
@@ -245,7 +264,7 @@
             z-index: 1;
         }
         
-        /* VIDEO BACKGROUND - SILAHKAN GANTI SRC DENGAN VIDEO ANDA */
+        /* VIDEO BACKGROUND */
         #hero-video {
             width: 100%;
             height: 100%;
@@ -255,7 +274,7 @@
             left: 0;
         }
         
-        /* IMAGE BACKGROUND ALTERNATIF - SILAHKAN GANTI URL DENGAN GAMBAR ANDA */
+        /* IMAGE BACKGROUND ALTERNATIF */
         .hero-image-bg {
             width: 100%;
             height: 100%;
@@ -300,16 +319,16 @@
         
         /* Hero Content Styling */
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             animation: fadeInUp 1s ease;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
@@ -321,8 +340,9 @@
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             animation: fadeInUp 1s ease 0.4s both;
+            flex-wrap: wrap;
         }
         
         @keyframes fadeInUp {
@@ -339,15 +359,16 @@
         /* BRAND/PARTNER SECTION */
         .brand-section {
             background-color: var(--gray-light);
-            padding: 50px 0;
+            padding: 40px 0;
         }
         
         .brand-title {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 500;
+            padding: 0 15px;
         }
         
         .brand-logos {
@@ -355,14 +376,17 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
         
         .brand-logo {
-            height: 60px;
+            height: 50px;
             filter: grayscale(100%);
             opacity: 0.7;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .brand-logo:hover {
@@ -373,8 +397,8 @@
         /* PORTFOLIO SECTION */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             margin-bottom: 40px;
         }
         
@@ -383,7 +407,7 @@
             overflow: hidden;
             position: relative;
             box-shadow: var(--shadow);
-            height: 250px;
+            height: 220px;
             cursor: pointer;
         }
         
@@ -418,7 +442,7 @@
         
         .view-icon {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
         
         .view-more-container {
@@ -447,8 +471,8 @@
         }
         
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
             position: relative;
             animation: zoomIn 0.3s ease;
         }
@@ -474,14 +498,19 @@
         
         .modal-close {
             position: absolute;
-            top: -40px;
-            right: -10px;
+            top: -45px;
+            right: 0;
             background: none;
             border: none;
             color: white;
-            font-size: 2.5rem;
+            font-size: 2rem;
             cursor: pointer;
             transition: var(--transition);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .modal-close:hover {
@@ -496,20 +525,20 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            padding: 0 20px;
+            padding: 0 10px;
         }
         
         .modal-prev, .modal-next {
             background: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
             backdrop-filter: blur(5px);
@@ -522,12 +551,12 @@
         
         .modal-counter {
             position: absolute;
-            bottom: -40px;
+            bottom: -35px;
             left: 0;
             width: 100%;
             text-align: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
         }
         
@@ -538,14 +567,15 @@
         
         .projects-slider {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             overflow-x: auto;
-            padding: 20px 10px;
+            padding: 15px 10px;
             scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling iOS */
         }
         
         .projects-slider::-webkit-scrollbar {
-            height: 8px;
+            height: 6px;
         }
         
         .projects-slider::-webkit-scrollbar-track {
@@ -559,12 +589,13 @@
         }
         
         .project-card {
-            min-width: 320px;
+            min-width: 300px;
             background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            flex-shrink: 0;
         }
         
         .project-card:hover {
@@ -573,7 +604,7 @@
         }
         
         .project-img {
-            height: 220px;
+            height: 200px;
             overflow: hidden;
         }
         
@@ -589,22 +620,22 @@
         }
         
         .project-content {
-            padding: 25px;
+            padding: 20px;
         }
         
         .project-category {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 5px 15px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
         
         .project-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0;
         }
         
@@ -616,8 +647,8 @@
         
         .about-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
         }
         
@@ -625,6 +656,7 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            order: 2;
         }
         
         .about-img img {
@@ -633,9 +665,13 @@
             display: block;
         }
         
+        .about-content {
+            order: 1;
+        }
+        
         .about-content h2 {
             color: white;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
         }
         
         .about-content h2::after {
@@ -648,8 +684,8 @@
         }
         
         .service-list li {
-            margin-bottom: 12px;
-            padding-left: 30px;
+            margin-bottom: 10px;
+            padding-left: 25px;
             position: relative;
         }
         
@@ -659,19 +695,19 @@
             left: 0;
             color: var(--accent-blue);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         /* WHY CHOOSE US */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
         
         .feature-item {
             text-align: center;
-            padding: 40px 25px;
+            padding: 30px 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -683,16 +719,16 @@
         }
         
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--primary);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
         }
         
         /* CONTACT & LOCATION */
@@ -702,8 +738,8 @@
         
         .location-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
         
         .location-card {
@@ -714,7 +750,7 @@
         }
         
         .location-img {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
         }
         
@@ -725,7 +761,7 @@
         }
         
         .location-content {
-            padding: 30px;
+            padding: 25px;
         }
         
         .location-content h3 {
@@ -737,6 +773,7 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         /* FAQ SECTION */
@@ -755,16 +792,18 @@
         .faq-question {
             background: var(--primary);
             color: white;
-            padding: 20px 25px;
+            padding: 18px 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
+            min-height: 60px;
         }
         
         .faq-question i {
             transition: var(--transition);
+            font-size: 1rem;
         }
         
         .faq-item.active .faq-question i {
@@ -780,7 +819,7 @@
         }
         
         .faq-item.active .faq-answer {
-            padding: 25px;
+            padding: 20px;
             max-height: 500px;
         }
         
@@ -794,22 +833,22 @@
         .testimonial-item {
             background: white;
             border-radius: var(--border-radius);
-            padding: 40px;
+            padding: 30px 20px;
             box-shadow: var(--shadow);
             text-align: center;
-            margin: 0 15px;
+            margin: 0 10px;
         }
         
         .testimonial-rating {
             color: #FFC107;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
         
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
         
         .testimonial-author {
@@ -820,10 +859,10 @@
         /* CUSTOMER LOGOS */
         .customer-logos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 25px;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 40px;
         }
         
         .customer-logo {
@@ -839,7 +878,7 @@
         }
         
         .customer-logo img {
-            max-height: 50px;
+            max-height: 45px;
             max-width: 100%;
         }
         
@@ -847,19 +886,19 @@
         footer {
             background-color: #111;
             color: #aaa;
-            padding: 70px 0 30px;
+            padding: 50px 0 25px;
         }
         
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: 40px;
         }
         
         .footer-logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: white;
             margin-bottom: 20px;
@@ -872,11 +911,12 @@
         
         .footer-about p {
             margin-bottom: 20px;
+            font-size: 0.95rem;
         }
         
         .social-icons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         
         .social-icons a {
@@ -898,8 +938,8 @@
         
         .footer-links h3, .footer-contact h3 {
             color: white;
-            font-size: 1.3rem;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
         
         .footer-links ul {
@@ -907,13 +947,14 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .footer-links a {
             color: #aaa;
             text-decoration: none;
             transition: var(--transition);
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
@@ -926,43 +967,101 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 0.95rem;
         }
         
         .footer-contact i {
             color: var(--accent-blue);
             width: 20px;
+            flex-shrink: 0;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid #333;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
         
-        /* RESPONSIVE DESIGN - OPTIMASI MOBILE */
-        @media (max-width: 992px) {
+        /* ===== RESPONSIVE DESIGN - OPTIMASI LAYOUT UNTUK MOBILE ===== */
+        
+        /* Tablet dan Desktop Kecil */
+        @media (min-width: 768px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
             }
             
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .location-container {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1.3rem;
             }
             
             .section-title h2 {
                 font-size: 2.2rem;
             }
+            
+            .about-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-img {
+                order: 1;
+            }
+            
+            .about-content {
+                order: 2;
+            }
+            
+            .location-container {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 40px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
         }
         
-        @media (max-width: 768px) {
+        /* Desktop Sedang */
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-container {
+                gap: 60px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Desktop Besar */
+        @media (min-width: 1200px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+        
+        /* ===== OPTIMASI KHUSUS UNTUK MOBILE ===== */
+        @media (max-width: 767px) {
             /* Navbar Mobile */
             .navbar {
-                padding: 15px 0;
+                padding: 0;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
             }
             
             .nav-links {
@@ -971,36 +1070,48 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
+                background: rgba(10, 36, 99, 0.98);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 20px 0;
-                transform: translateY(-100%);
+                padding: 80px 20px 40px;
+                transform: translateX(-100%);
                 opacity: 0;
                 visibility: hidden;
                 transition: var(--transition);
-                z-index: 999;
+                z-index: 1000;
                 backdrop-filter: blur(10px);
             }
             
             .nav-links.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
                 visibility: visible;
             }
             
             .nav-links li {
                 margin: 15px 0;
+                width: 100%;
+                text-align: center;
             }
             
             .nav-links a {
-                color: var(--primary);
-                font-size: 1.2rem;
+                color: white;
+                font-size: 1.3rem;
+                padding: 12px 20px;
+                display: block;
+                width: 100%;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                transform: translateX(10px);
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
             
             /* Hero Section Mobile */
@@ -1010,26 +1121,28 @@
             }
             
             .hero h1 {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 15px;
             }
             
             .hero p {
-                font-size: 1.1rem;
-                padding: 0 10px;
+                font-size: 1rem;
+                margin-bottom: 30px;
+                line-height: 1.5;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
+                gap: 12px;
             }
             
-            .btn {
+            .hero-buttons .btn {
                 width: 100%;
                 max-width: 300px;
-                text-align: center;
-                padding: 12px 24px;
+                padding: 14px 20px;
+                font-size: 1rem;
             }
             
             /* Video optimization for mobile */
@@ -1037,46 +1150,45 @@
                 object-position: center;
             }
             
-            /* Section spacing mobile */
-            section {
-                padding: 60px 0;
+            /* Brand logos mobile */
+            .brand-logos {
+                justify-content: center;
             }
             
-            .section-title h2 {
-                font-size: 1.8rem;
+            .brand-logo {
+                height: 45px;
+                margin: 5px 10px;
             }
             
             /* Portfolio grid mobile */
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .portfolio-item {
+                height: 200px;
             }
             
             /* Modal mobile optimizations */
-            .modal-content {
-                max-width: 95%;
-                max-height: 95%;
-            }
-            
             .modal-nav {
-                padding: 0 10px;
+                padding: 0 5px;
             }
             
             .modal-prev, .modal-next {
                 width: 40px;
                 height: 40px;
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .modal-close {
-                top: -50px;
-                right: 0;
-                font-size: 2rem;
+                top: -40px;
+                right: 5px;
+                font-size: 1.8rem;
             }
             
             /* Projects slider mobile */
             .project-card {
                 min-width: 280px;
+            }
+            
+            .project-img {
+                height: 180px;
             }
             
             /* Features grid mobile */
@@ -1085,44 +1197,89 @@
                 gap: 20px;
             }
             
-            .feature-item {
-                padding: 30px 20px;
-            }
-            
-            /* Location container mobile */
-            .location-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            /* FAQ mobile */
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 0.95rem;
             }
             
             /* Testimonial mobile */
             .testimonial-item {
-                padding: 30px 20px;
-                margin: 0 10px;
+                padding: 25px 15px;
             }
             
-            /* Footer mobile */
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            /* Customer logos mobile */
+            .customer-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            /* Copyright text mobile */
+            .copyright {
+                font-size: 0.8rem;
+                line-height: 1.6;
+                padding: 0 10px;
+            }
+            
+            /* Tap target optimization */
+            .btn, .faq-question, .nav-links a, .portfolio-item, 
+            .modal-prev, .modal-next, .modal-close, .social-icons a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Touch-friendly hover states */
+            @media (hover: none) {
+                .btn:hover {
+                    transform: none;
+                }
+                
+                .feature-item:hover {
+                    transform: none;
+                }
+                
+                .portfolio-item:hover img {
+                    transform: none;
+                }
+                
+                .portfolio-overlay {
+                    opacity: 0.7;
+                }
             }
         }
         
-        @media (max-width: 576px) {
+        /* Mobile Sangat Kecil */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 550px;
+            }
+            
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             
             .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-buttons .btn {
-                max-width: 250px;
+                font-size: 0.95rem;
             }
             
             .section-title h2 {
                 font-size: 1.6rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-item {
+                height: 180px;
+            }
+            
+            .project-card {
+                min-width: 260px;
+            }
+            
+            .project-img {
+                height: 160px;
             }
             
             .location-buttons {
@@ -1139,50 +1296,12 @@
             }
             
             .modal-counter {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 bottom: -30px;
             }
-        }
-        
-        /* Optimasi untuk Android khusus */
-        @media (max-width: 480px) and (orientation: portrait) {
-            .hero {
-                height: 85vh;
-                min-height: 500px;
-            }
             
-            .hero h1 {
+            .footer-logo {
                 font-size: 1.6rem;
-                line-height: 1.2;
-            }
-            
-            .hero p {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
-            }
-            
-            /* Perbaikan tap target untuk mobile */
-            .btn, .faq-question, .nav-links a, .portfolio-item {
-                min-height: 44px;
-            }
-            
-            .portfolio-item {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            /* Optimasi font size untuk mobile */
-            body {
-                font-size: 15px;
-            }
-            
-            h2 {
-                font-size: 1.4rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
             }
         }
         
@@ -1200,12 +1319,89 @@
             
             .hero p {
                 font-size: 1rem;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
             }
             
             /* Modal landscape optimization */
             .modal-img {
                 max-height: 60vh;
+            }
+            
+            /* Navbar landscape */
+            .nav-links {
+                padding-top: 60px;
+                overflow-y: auto;
+            }
+            
+            .nav-links li {
+                margin: 8px 0;
+            }
+            
+            .nav-links a {
+                padding: 8px 15px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+            
+            .project-card, .feature-item, .location-card, 
+            .testimonial-item, .faq-answer {
+                background-color: #1e1e1e;
+                color: #e0e0e0;
+            }
+            
+            .contact-section, .projects-section, .brand-section {
+                background-color: #1a1a1a;
+            }
+            
+            .modal-close, .modal-prev, .modal-next {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .btn {
+                border: 2px solid white;
+            }
+            
+            .nav-links a::after {
+                height: 3px;
+            }
+            
+            .section-title h2::after {
+                height: 4px;
+            }
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Fix untuk iOS input zoom */
+        @media screen and (max-width: 767px) {
+            input, select, textarea {
+                font-size: 16px !important;
             }
         }
     </style>
@@ -1217,7 +1413,7 @@
             <nav class="navbar">
                 <a href="#" class="logo">AUTOTRICZ<span> X FD AUTO</span></a>
                 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 
@@ -1246,17 +1442,15 @@
             </div>
         </div>
         
-        <!-- BACKGROUND AREA - PILIH SALAH SATU -->
+        <!-- BACKGROUND AREA -->
         <div class="hero-background">
-            <!-- PILIHAN 1: VIDEO BACKGROUND -->
-            <!-- GANTI "src" DENGAN LINK VIDEO ANDA -->
-            <video autoplay muted loop playsinline id="hero-video">
+            <!-- VIDEO BACKGROUND -->
+            <video autoplay muted loop playsinline id="hero-video" preload="metadata">
                 <source src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             
-            <!-- PILIHAN 2: IMAGE BACKGROUND -->
-            <!-- UNCOMMENT BARIS DIBAWAH INI JIKA MAU PAKAI GAMBAR -->
+            <!-- IMAGE BACKGROUND -->
             <div class="hero-image-bg" style="background-image: url('img/home.jpeg');"></div>
         </div>
     </section>
@@ -1266,11 +1460,11 @@
         <div class="container">
             <h3 class="brand-title">Dipercaya oleh Merek & Mitra Terkemuka</h3>
             <div class="brand-logos">
-                <div class="brand-logo"><i class="fas fa-car" style="font-size: 3rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-paint-roller" style="font-size: 3rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-award" style="font-size: 3rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-tools" style="font-size: 3rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-car" style="font-size: 2.5rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-paint-roller" style="font-size: 2.5rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-award" style="font-size: 2.5rem; color: var(--primary);"></i></div>
+                <div class="brand-logo"><i class="fas fa-tools" style="font-size: 2.5rem; color: var(--primary);"></i></div>
             </div>
         </div>
     </section>
@@ -1284,66 +1478,74 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-index="0">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg" alt="Car Restoration Project">
+                <div class="portfolio-item" data-index="0" role="button" tabindex="0" aria-label="View Car Restoration Project">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg" alt="Car Restoration Project" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="1">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg" alt="Car Painting Project">
+                <div class="portfolio-item" data-index="1" role="button" tabindex="0" aria-label="View Car Painting Project">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg" alt="Car Painting Project" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="2">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg" alt="Luxury Car Repair">
+                <div class="portfolio-item" data-index="2" role="button" tabindex="0" aria-label="View Luxury Car Repair">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg" alt="Luxury Car Repair" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="3">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Porsche Repair Detail">
+                <div class="portfolio-item" data-index="3" role="button" tabindex="0" aria-label="View Porsche Repair Detail">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Porsche Repair Detail" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="4">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg" alt="Mercedes Paint Job">
+                <div class="portfolio-item" data-index="4" role="button" tabindex="0" aria-label="View Mercedes Paint Job">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg" alt="Mercedes Paint Job" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="5">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg" alt="BMW Restoration">
+                <div class="portfolio-item" data-index="5" role="button" tabindex="0" aria-label="View BMW Restoration">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg" alt="BMW Restoration" loading="lazy">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-            </div>
-            
-            <div class="view-more-container">
-                <a href="#" class="btn">View More Projects</a>
+                <div class="portfolio-item" data-index="6" role="button" tabindex="0" aria-label="View Car Restoration Project">
+                    <img src="img/pesut.jpeg" alt="Car Restoration Project" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-index="7" role="button" tabindex="0" aria-label="View Car Restoration Project">
+                    <img src="img/merci.jpeg" alt="Car Restoration Project" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <i class="fas fa-search-plus view-icon"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- MODAL/GALLERY UNTUK PORTFOLIO -->
-    <div class="modal" id="portfolioModal">
+    <div class="modal" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio Gallery">
         <div class="modal-content">
             <img class="modal-img" id="modalImage" src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Portfolio Image">
-            <button class="modal-close" id="modalClose">
+            <button class="modal-close" id="modalClose" aria-label="Close gallery">
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-nav">
-                <button class="modal-prev" id="modalPrev">
+                <button class="modal-prev" id="modalPrev" aria-label="Previous image">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="modal-next" id="modalNext">
+                <button class="modal-next" id="modalNext" aria-label="Next image">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
-            <div class="modal-counter" id="modalCounter">1 / 6</div>
+            <div class="modal-counter" id="modalCounter">1 / 8</div>
         </div>
     </div>
 
@@ -1358,7 +1560,7 @@
             <div class="projects-slider">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="BMW Restoration">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="BMW Restoration" loading="lazy">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Full Body Painting</span>
@@ -1369,7 +1571,7 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Mercedes Painting">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Mercedes Painting" loading="lazy">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Premium Painting</span>
@@ -1380,12 +1582,12 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Porsche Repair">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Porsche Repair" loading="lazy">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Pemasangan Biled</span>
                         <h3 class="project-title">Nissan Tiida (C11)</h3>
-                        <p>Pemasangan lampu biled </p>
+                        <p>Pemasangan lampu biled</p>
                     </div>
                 </div>
             </div>
@@ -1397,7 +1599,7 @@
         <div class="container">
             <div class="about-container">
                 <div class="about-img">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Our Workshop">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Our Workshop" loading="lazy">
                 </div>
                 <div class="about-content">
                     <h2>Layanan kami</h2>
@@ -1473,7 +1675,7 @@
             <div class="location-container">
                 <div class="location-card">
                     <div class="location-img">
-                        <img src="img/home.jpeg" alt="Main Workshop">
+                        <img src="img/home.jpeg" alt="Main Workshop" loading="lazy">
                     </div>
                     <div class="location-content">
                         <h3>Bengkel AUTOTRICZ X FDAUTO</h3>
@@ -1482,15 +1684,15 @@
                         <p><i class="fas fa-clock"></i> Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
                         
                         <div class="location-buttons">
-                            <a href="https://maps.app.goo.gl/UtC2nQgKNWP4Z9je8" target="_blank" class="btn">Google Maps</a>
-                            <a href="wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://maps.app.goo.gl/UtC2nQgKNWP4Z9je8" target="_blank" rel="noopener" class="btn">Google Maps</a>
+                            <a href="https://wa.me/628983712521" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="location-card">
                     <div class="location-img">
-                        <img src="img/maop.jpeg" alt="Branch Location">
+                        <img src="img/maop.jpeg" alt="Branch Location" loading="lazy">
                     </div>
                     <div class="location-content">
                         <h3>Bengkel Aca Coy</h3>
@@ -1499,8 +1701,8 @@
                         <p><i class="fas fa-clock"></i>Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
                         
                         <div class="location-buttons">
-                            <a href="https://maps.app.goo.gl/qQsAXSCpdwBrS6MQ8" target="_blank" class="btn">Google Maps</a>
-                            <a href="wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://maps.app.goo.gl/qQsAXSCpdwBrS6MQ8" target="_blank" rel="noopener" class="btn">Google Maps</a>
+                            <a href="https://wa.me/628983712521" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -1518,7 +1720,7 @@
             
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
                         <span>Berapa waktu penyelesaian tipikal untuk pekerjaan pengecatan penuh?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1528,7 +1730,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
                         <span>Apakah Anda menawarkan garansi untuk pekerjaan pengecatan dan perbaikan Anda?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1538,8 +1740,8 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Berapa waktu penyelesaian tipikal untuk pekerjaan Pemasangan Biled </span>
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <span>Berapa waktu penyelesaian tipikal untuk pekerjaan Pemasangan Biled</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
@@ -1548,7 +1750,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
                         <span>Apakah Anda menangani klaim asuransi?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1594,19 +1796,19 @@
             
             <div class="customer-logos">
                 <div class="customer-logo">
-                    <i class="fas fa-building" style="font-size: 3rem; color: var(--gray);"></i>
+                    <i class="fas fa-building" style="font-size: 2.5rem; color: var(--gray);"></i>
                     <p>Clan Automotive</p>
                 </div>
                 <div class="customer-logo">
-                    <i class="fas fa-car" style="font-size: 3rem; color: var(--gray);"></i>
+                    <i class="fas fa-car" style="font-size: 2.5rem; color: var(--gray);"></i>
                     <p>FDAUTO</p>
                 </div>
                 <div class="customer-logo">
-                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--gray);"></i>
+                    <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--gray);"></i>
                     <p>Fahrid</p>
                 </div>
                 <div class="customer-logo">
-                    <i class="fas fa-tachometer-alt" style="font-size: 3rem; color: var(--gray);"></i>
+                    <i class="fas fa-tachometer-alt" style="font-size: 2.5rem; color: var(--gray);"></i>
                     <p>AUTOTRICZ</p>
                 </div>
             </div>
@@ -1621,10 +1823,10 @@
                     <a href="#" class="footer-logo">AUTOTRICZ<span> X FD AUTO</span></a>
                     <p>Spesialis reparasi dan pengecatan bodi profesional dengan standar premium. Kami mengembalikan kendaraan ke kondisi aslinya dengan presisi dan hati-hati.</p>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -1675,6 +1877,9 @@
             mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.setAttribute('aria-label', navLinks.classList.contains('active') 
+                ? 'Close navigation menu' 
+                : 'Open navigation menu');
         });
 
         // Close mobile menu when clicking a link
@@ -1682,14 +1887,45 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+            }
         });
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentNode;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    if (faqItem !== item) {
+                        faqItem.classList.remove('active');
+                        const q = faqItem.querySelector('.faq-question');
+                        if (q) q.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Toggle current item
                 item.classList.toggle('active');
+                question.setAttribute('aria-expanded', !isActive);
+            });
+            
+            // Keyboard support for FAQ
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
             });
         });
 
@@ -1703,8 +1939,19 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+                    }
+                    
+                    // Calculate scroll position
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -1779,6 +2026,14 @@
             {
                 src: "img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg",
                 alt: "BMW Restoration"
+            },
+            {
+                src: "img/pesut.jpeg",
+                alt: "Car Restoration Project"
+            },
+            {
+                src: "img/merci.jpeg",
+                alt: "Car Restoration Project"
             }
         ];
         
@@ -1798,7 +2053,20 @@
                 currentImageIndex = index;
                 updateModal();
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+                modal.setAttribute('aria-hidden', 'false');
+            });
+            
+            // Keyboard support for portfolio items
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    currentImageIndex = index;
+                    updateModal();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    modal.setAttribute('aria-hidden', 'false');
+                }
             });
         });
         
@@ -1806,6 +2074,7 @@
         modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+            modal.setAttribute('aria-hidden', 'true');
         });
         
         // Close modal when clicking outside the image
@@ -1813,6 +2082,7 @@
             if (e.target === modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                modal.setAttribute('aria-hidden', 'true');
             }
         });
         
@@ -1837,6 +2107,7 @@
             if (e.key === 'Escape') {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                modal.setAttribute('aria-hidden', 'true');
             } else if (e.key === 'ArrowLeft') {
                 currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
                 updateModal();
@@ -1852,6 +2123,9 @@
             modalImage.src = image.src;
             modalImage.alt = image.alt;
             modalCounter.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
+            
+            // Focus management for accessibility
+            modalPrev.focus();
         }
         
         // Touch/swipe support for mobile
@@ -1868,7 +2142,7 @@
         }, { passive: true });
         
         function handleSwipe() {
-            const swipeThreshold = 50;
+            const swipeThreshold = 30;
             const diff = touchStartX - touchEndX;
             
             if (Math.abs(diff) > swipeThreshold) {
@@ -1883,52 +2157,136 @@
             }
         }
         
-        // Optimasi untuk mobile - mencegah zoom pada input focus
+        // Optimasi untuk mobile
         document.addEventListener('DOMContentLoaded', function() {
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                // Set viewport untuk mobile
-                let viewport = document.querySelector('meta[name="viewport"]');
-                if (viewport) {
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-                }
+            // Deteksi perangkat mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            // Optimasi video untuk mobile
+            const heroVideo = document.getElementById('hero-video');
+            if (heroVideo && isMobile) {
+                heroVideo.setAttribute('playsinline', '');
+                heroVideo.setAttribute('muted', '');
+                heroVideo.setAttribute('autoplay', '');
                 
-                // Optimasi video untuk mobile
-                const heroVideo = document.getElementById('hero-video');
-                if (heroVideo) {
-                    heroVideo.setAttribute('playsinline', '');
-                    heroVideo.setAttribute('muted', '');
-                    heroVideo.setAttribute('autoplay', '');
+                // Fallback jika autoplay tidak bekerja
+                setTimeout(() => {
+                    if (heroVideo.paused) {
+                        heroVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+                    }
+                }, 500);
+                
+                // Matikan video di mobile untuk menghemat baterai
+                const handleVisibilityChange = () => {
+                    if (document.hidden) {
+                        heroVideo.pause();
+                    } else {
+                        heroVideo.play().catch(e => console.log('Video play error:', e));
+                    }
+                };
+                
+                document.addEventListener('visibilitychange', handleVisibilityChange);
+            }
+            
+            // Optimasi performa untuk mobile
+            if (isMobile) {
+                // Defer loading gambar yang tidak terlihat
+                const lazyLoadImages = () => {
+                    const images = document.querySelectorAll('img[loading="lazy"]');
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                img.src = img.dataset.src;
+                                observer.unobserve(img);
+                            }
+                        });
+                    });
                     
-                    // Fallback jika autoplay tidak bekerja
-                    setTimeout(() => {
-                        if (heroVideo.paused) {
-                            heroVideo.play().catch(e => console.log('Autoplay prevented:', e));
+                    images.forEach(img => {
+                        if (img.dataset.src) {
+                            observer.observe(img);
                         }
-                    }, 1000);
-                }
+                    });
+                };
+                
+                // Jalankan lazy loading
+                setTimeout(lazyLoadImages, 1000);
             }
         });
         
         // Touch event optimization untuk mobile
         document.addEventListener('touchstart', function() {}, {passive: true});
         
-        // Optimasi scroll untuk mobile
+        // Optimasi scroll untuk mobile dengan throttle
         let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
+        let ticking = false;
+        
+        function handleScroll() {
+            const header = document.getElementById('header');
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             // Hide/show navbar berdasarkan scroll direction
             if (scrollTop > lastScrollTop && scrollTop > 100) {
                 // Scroll down
-                document.getElementById('header').style.transform = 'translateY(-100%)';
+                header.style.transform = 'translateY(-100%)';
             } else {
                 // Scroll up
-                document.getElementById('header').style.transform = 'translateY(0)';
+                header.style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop;
+            
+            // Add shadow when scrolled
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleScroll();
+                });
+                ticking = true;
+            }
         }, { passive: true });
+        
+        // Load images dengan Intersection Observer untuk performa yang lebih baik
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Fix untuk iOS - mencegah zoom pada input focus
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
     </script>
 </body>
-
 </html>
-
