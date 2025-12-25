@@ -2,8 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- Optimasi viewport untuk mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>AUTOTRICZ | Body Repair & Painting Specialist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +39,6 @@
             color: var(--gray-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-text-size-adjust: 100%; /* Mencegah zoom teks otomatis di iOS */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -58,17 +56,16 @@
         }
         
         section {
-            padding: 60px 0;
+            padding: 70px 0;
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 40px;
-            padding: 0 10px;
         }
         
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
@@ -99,8 +96,6 @@
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            min-height: 50px;
-            min-width: 44px; /* Ukuran tap target minimum untuk mobile */
         }
         
         .btn:hover {
@@ -134,24 +129,19 @@
             z-index: 1000;
             transition: var(--transition);
             background-color: rgba(10, 36, 99, 0.95);
-            height: 70px;
-            display: flex;
-            align-items: center;
         }
         
         header.scrolled {
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
-            height: 70px;
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            height: 100%;
+            padding: 18px 0;
         }
         
         .logo {
@@ -161,7 +151,6 @@
             color: var(--secondary);
             text-decoration: none;
             z-index: 1001;
-            white-space: nowrap;
         }
         
         header.scrolled .logo {
@@ -188,7 +177,6 @@
             font-size: 0.95rem;
             transition: var(--transition);
             position: relative;
-            padding: 5px 0;
         }
         
         header.scrolled .nav-links a {
@@ -201,7 +189,7 @@
             width: 0;
             height: 2px;
             background: var(--accent-blue);
-            bottom: -2px;
+            bottom: -5px;
             left: 0;
             transition: var(--transition);
         }
@@ -242,7 +230,7 @@
             color: var(--secondary);
             text-align: center;
             overflow: hidden;
-            padding-top: 70px; /* Offset untuk fixed header */
+            padding-top: 70px;
         }
         
         .hero-content {
@@ -254,7 +242,6 @@
             width: 100%;
         }
         
-        /* Background Container */
         .hero-background {
             position: absolute;
             top: 0;
@@ -264,7 +251,6 @@
             z-index: 1;
         }
         
-        /* VIDEO BACKGROUND */
         #hero-video {
             width: 100%;
             height: 100%;
@@ -274,7 +260,6 @@
             left: 0;
         }
         
-        /* IMAGE BACKGROUND ALTERNATIF */
         .hero-image-bg {
             width: 100%;
             height: 100%;
@@ -285,7 +270,6 @@
             left: 0;
         }
         
-        /* Overlay untuk kontras teks */
         .hero::before {
             content: '';
             position: absolute;
@@ -301,7 +285,6 @@
             z-index: 2;
         }
         
-        /* Pattern overlay untuk efek premium */
         .hero::after {
             content: '';
             position: absolute;
@@ -317,9 +300,8 @@
             pointer-events: none;
         }
         
-        /* Hero Content Styling */
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -328,7 +310,7 @@
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
@@ -356,45 +338,297 @@
             }
         }
         
-        /* BRAND/PARTNER SECTION */
-        .brand-section {
-            background-color: var(--gray-light);
-            padding: 40px 0;
+        /* PROMO SECTION - SLIDER GESER */
+        .promo-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
         
-        .brand-title {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            font-weight: 500;
-            padding: 0 15px;
+        .promo-section .section-title h2 {
+            color: white;
         }
         
-        .brand-logos {
+        .promo-section .section-title h2::after {
+            background: var(--accent-blue);
+        }
+        
+        .promo-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 0 10px;
+        }
+        
+        .promo-slider {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
+            transition: transform 0.5s ease;
             gap: 20px;
         }
         
-        .brand-logo {
-            height: 50px;
-            filter: grayscale(100%);
-            opacity: 0.7;
+        .promo-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .promo-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .promo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: var(--transition);
+        }
+        
+        .promo-slide:hover .promo-img img {
+            transform: scale(1.05);
+        }
+        
+        .promo-content {
+            padding: 25px;
+            color: var(--gray-dark);
+        }
+        
+        .promo-badge {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .promo-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .promo-price {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .promo-old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .promo-timer {
+            background: var(--gray-light);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .promo-timer span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 5px;
+            pointer-events: none;
+        }
+        
+        .slider-arrow {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            pointer-events: all;
+            color: var(--primary);
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
         
-        .brand-logo:hover {
-            filter: grayscale(0);
-            opacity: 1;
+        .slider-arrow:hover {
+            background: white;
+            transform: scale(1.1);
         }
         
-        /* PORTFOLIO SECTION */
+        /* ====== ETALASE PRODUK ====== */
+        .etalase-section {
+            background-color: white;
+        }
+        
+        .etalase-slider {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px 10px;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .etalase-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .etalase-slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .etalase-slider::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .product-card {
+            min-width: 300px;
+            background: var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* ====== TOMBOL WHATSAPP PESAN ====== */
+        .whatsapp-order-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .whatsapp-order-btn:hover {
+            background-color: #1DA851;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-order-btn i {
+            font-size: 1.1rem;
+        }
+        
+        /* PORTFOLIO SECTION - 2 FOTO PER BARIS DI MOBILE */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -443,10 +677,6 @@
         .view-icon {
             color: white;
             font-size: 2rem;
-        }
-        
-        .view-more-container {
-            text-align: center;
         }
         
         /* MODAL/GALLERY STYLES */
@@ -560,7 +790,7 @@
             font-weight: 500;
         }
         
-        /* NEW PROJECTS SECTION */
+        /* PROJECTS SECTION */
         .projects-section {
             background-color: var(--gray-light);
         }
@@ -571,7 +801,7 @@
             overflow-x: auto;
             padding: 15px 10px;
             scrollbar-width: thin;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling iOS */
+            -webkit-overflow-scrolling: touch;
         }
         
         .projects-slider::-webkit-scrollbar {
@@ -984,20 +1214,20 @@
             line-height: 1.5;
         }
         
-        /* ===== RESPONSIVE DESIGN - OPTIMASI LAYOUT UNTUK MOBILE ===== */
+        /* ===== RESPONSIVE DESIGN ===== */
         
-        /* Tablet dan Desktop Kecil */
+        /* Tablet */
         @media (min-width: 768px) {
             .hero h1 {
-                font-size: 3.2rem;
+                font-size: 3rem;
             }
             
             .hero p {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .section-title h2 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .about-container {
@@ -1025,9 +1255,19 @@
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                 gap: 25px;
             }
+            
+            /* Promo slider tablet */
+            .promo-slide {
+                min-width: calc(50% - 10px);
+            }
+            
+            /* Etalase produk tablet */
+            .product-card {
+                min-width: 280px;
+            }
         }
         
-        /* Desktop Sedang */
+        /* Desktop */
         @media (min-width: 992px) {
             .hero h1 {
                 font-size: 3.5rem;
@@ -1039,6 +1279,16 @@
             
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Promo slider desktop */
+            .promo-slide {
+                min-width: calc(33.333% - 14px);
+            }
+            
+            /* Etalase produk desktop */
+            .product-card {
+                min-width: 300px;
             }
         }
         
@@ -1057,7 +1307,7 @@
         @media (max-width: 767px) {
             /* Navbar Mobile */
             .navbar {
-                padding: 0;
+                padding: 15px 0;
             }
             
             .logo {
@@ -1121,7 +1371,7 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
                 line-height: 1.2;
                 margin-bottom: 15px;
             }
@@ -1145,24 +1395,38 @@
                 font-size: 1rem;
             }
             
-            /* Video optimization for mobile */
-            #hero-video {
-                object-position: center;
+            /* Etalase produk mobile */
+            .etalase-slider {
+                gap: 20px;
+                padding: 15px 10px;
             }
             
-            /* Brand logos mobile */
-            .brand-logos {
-                justify-content: center;
+            .product-card {
+                min-width: 280px;
             }
             
-            .brand-logo {
-                height: 45px;
-                margin: 5px 10px;
+            .product-img {
+                height: 180px;
             }
             
-            /* Portfolio grid mobile */
+            .whatsapp-order-btn {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+            
+            /* Portfolio grid mobile - 2 foto per baris */
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
             .portfolio-item {
-                height: 200px;
+                height: 180px;
+            }
+            
+            /* Promo slider mobile */
+            .slider-arrows {
+                display: none;
             }
             
             /* Modal mobile optimizations */
@@ -1203,48 +1467,18 @@
                 font-size: 0.95rem;
             }
             
-            /* Testimonial mobile */
-            .testimonial-item {
-                padding: 25px 15px;
-            }
-            
             /* Customer logos mobile */
             .customer-logos {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
             
-            /* Copyright text mobile */
-            .copyright {
-                font-size: 0.8rem;
-                line-height: 1.6;
-                padding: 0 10px;
-            }
-            
             /* Tap target optimization */
             .btn, .faq-question, .nav-links a, .portfolio-item, 
-            .modal-prev, .modal-next, .modal-close, .social-icons a {
+            .modal-prev, .modal-next, .modal-close, .social-icons a,
+            .whatsapp-order-btn {
                 min-height: 44px;
                 min-width: 44px;
-            }
-            
-            /* Touch-friendly hover states */
-            @media (hover: none) {
-                .btn:hover {
-                    transform: none;
-                }
-                
-                .feature-item:hover {
-                    transform: none;
-                }
-                
-                .portfolio-item:hover img {
-                    transform: none;
-                }
-                
-                .portfolio-overlay {
-                    opacity: 0.7;
-                }
             }
         }
         
@@ -1255,7 +1489,7 @@
             }
             
             .hero h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
             
             .hero p {
@@ -1266,12 +1500,27 @@
                 font-size: 1.6rem;
             }
             
+            /* Etalase produk kecil */
+            .product-card {
+                min-width: 260px;
+            }
+            
+            .product-img {
+                height: 160px;
+            }
+            
+            .product-content {
+                padding: 20px;
+            }
+            
+            /* Portfolio grid mobile */
             .portfolio-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             
             .portfolio-item {
-                height: 180px;
+                height: 160px;
             }
             
             .project-card {
@@ -1298,10 +1547,6 @@
             .modal-counter {
                 font-size: 0.9rem;
                 bottom: -30px;
-            }
-            
-            .footer-logo {
-                font-size: 1.6rem;
             }
         }
         
@@ -1332,76 +1577,14 @@
                 max-height: 60vh;
             }
             
-            /* Navbar landscape */
-            .nav-links {
-                padding-top: 60px;
-                overflow-y: auto;
+            /* Portfolio landscape */
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .nav-links li {
-                margin: 8px 0;
-            }
-            
-            .nav-links a {
-                padding: 8px 15px;
-                font-size: 1.1rem;
-            }
-        }
-        
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #e0e0e0;
-            }
-            
-            .project-card, .feature-item, .location-card, 
-            .testimonial-item, .faq-answer {
-                background-color: #1e1e1e;
-                color: #e0e0e0;
-            }
-            
-            .contact-section, .projects-section, .brand-section {
-                background-color: #1a1a1a;
-            }
-            
-            .modal-close, .modal-prev, .modal-next {
-                background-color: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            .btn {
-                border: 2px solid white;
-            }
-            
-            .nav-links a::after {
-                height: 3px;
-            }
-            
-            .section-title h2::after {
-                height: 4px;
-            }
-        }
-        
-        /* Reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            html {
-                scroll-behavior: auto;
-            }
-        }
-        
-        /* Fix untuk iOS input zoom */
-        @media screen and (max-width: 767px) {
-            input, select, textarea {
-                font-size: 16px !important;
+            /* Etalase landscape */
+            .product-card {
+                min-width: 250px;
             }
         }
     </style>
@@ -1413,13 +1596,14 @@
             <nav class="navbar">
                 <a href="#" class="logo">AUTOTRICZ<span> X FD AUTO</span></a>
                 
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
                 
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#promo">Promo</a></li>
+                    <li><a href="#etalase">Etalase</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#about">About Us</a></li>
@@ -1431,45 +1615,250 @@
         </div>
     </header>
 
-    <!-- HERO SECTION - BACKGROUND KUSTOM -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>SPESIALIS PERBAIKAN DAN PENGECATAN BODY MOBIL</h1>
             <p>Spesialis reparasi dan pengecatan bodi profesional dengan standar premium. Kami mengembalikan kendaraan ke kondisi aslinya dengan presisi dan hati-hati.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-accent">Book Service</a>
-                <a href="#portfolio" class="btn">View Portfolio</a>
+                <a href="#etalase" class="btn">Lihat Etalase</a>
             </div>
         </div>
         
-        <!-- BACKGROUND AREA -->
         <div class="hero-background">
-            <!-- VIDEO BACKGROUND -->
-            <video autoplay muted loop playsinline id="hero-video" preload="metadata">
+            <video autoplay muted loop playsinline id="hero-video">
                 <source src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             
-            <!-- IMAGE BACKGROUND -->
             <div class="hero-image-bg" style="background-image: url('img/home.jpeg');"></div>
         </div>
     </section>
 
-    <!-- BRAND/PARTNER SECTION -->
-    <section class="brand-section">
+    <!-- PROMO AKHIR TAHUN - SLIDER GESER -->
+    <section class="promo-section" id="promo">
         <div class="container">
-            <h3 class="brand-title">Dipercaya oleh Merek & Mitra Terkemuka</h3>
-            <div class="brand-logos">
-                <div class="brand-logo"><i class="fas fa-car" style="font-size: 2.5rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-paint-roller" style="font-size: 2.5rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-award" style="font-size: 2.5rem; color: var(--primary);"></i></div>
-                <div class="brand-logo"><i class="fas fa-tools" style="font-size: 2.5rem; color: var(--primary);"></i></div>
+            <div class="section-title">
+                <h2>Promo Akhir Tahun</h2>
+                <p>Nikmati Promo Spesial dari Kami</p>
+            </div>
+            
+            <div class="promo-slider-container">
+                <div class="slider-arrows">
+                    <button class="slider-arrow prev-arrow" id="promoPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow next-arrow" id="promoNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="promo-slider" id="promoSlider">
+                    <!-- Slide 1 -->
+                    <div class="promo-slide">
+                        <div class="promo-img">
+                            <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="Full Body Painting Promo">
+                        </div>
+                        <div class="promo-content">
+                            <div class="promo-badge">DISKON 20%</div>
+                            <h3 class="promo-title">Full Body Painting</h3>
+                            <p>Perbaikan full body dan pengecatan custom dengan lapisan keramik premium.</p>
+                            <div class="promo-price">Rp 3.500.000 <span class="promo-old-price">Rp 4.375.000</span></div>
+                            <div class="promo-timer">Berakhir dalam: <span id="timer1">5 hari</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="promo-slide">
+                        <div class="promo-img">
+                            <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Premium Painting Promo">
+                        </div>
+                        <div class="promo-content">
+                            <div class="promo-badge">DISKON 15%</div>
+                            <h3 class="promo-title">Premium Painting</h3>
+                            <p>Warna cat premium dan finishing detail dengan kualitas terbaik.</p>
+                            <div class="promo-price">Rp 2.800.000 <span class="promo-old-price">Rp 3.294.000</span></div>
+                            <div class="promo-timer">Berakhir dalam: <span id="timer2">7 hari</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="promo-slide">
+                        <div class="promo-img">
+                            <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Pemasangan Biled Promo">
+                        </div>
+                        <div class="promo-content">
+                            <div class="promo-badge">DISKON 30%</div>
+                            <h3 class="promo-title">Pemasangan Biled</h3>
+                            <p>Pemasangan lampu biled dengan kualitas premium dan garansi 1 tahun.</p>
+                            <div class="promo-price">Rp 850.000 <span class="promo-old-price">Rp 1.214.000</span></div>
+                            <div class="promo-timer">Berakhir dalam: <span id="timer3">3 hari</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav" id="promoDots">
+                    <button class="slider-dot active"></button>
+                    <button class="slider-dot"></button>
+                    <button class="slider-dot"></button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- ETALASE PRODUK & JASA - SLIDER GESER + TOMBOL WHATSAPP -->
+    <section id="etalase" class="etalase-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Etalase Produk & Jasa</h2>
+                <p>Lihat layanan lengkap dan harga kami</p>
+            </div>
+            
+            <div class="etalase-slider">
+                <!-- Produk 1: Full Body Painting -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="Full Body Painting">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Pengecatan</span>
+                        <h3 class="product-title">Full Body Painting</h3>
+                        <p class="product-desc">Perbaikan full body dan pengecatan custom dengan lapisan keramik premium.</p>
+                        <div class="product-price">Rp 3.500.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Full Body Painting" 
+                                data-product-category="Pengecatan" 
+                                data-product-price="Rp 3.500.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produk 2: Pemasangan Biled -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Pemasangan Biled">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Modifikasi</span>
+                        <h3 class="product-title">Pemasangan Biled</h3>
+                        <p class="product-desc">Pemasangan lampu biled premium dengan garansi 1 tahun.</p>
+                        <div class="product-price">Rp 850.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Pemasangan Biled" 
+                                data-product-category="Modifikasi" 
+                                data-product-price="Rp 850.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produk 3: Premium Painting -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Premium Painting">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Pengecatan</span>
+                        <h3 class="product-title">Premium Painting</h3>
+                        <p class="product-desc">Cat premium dengan finishing terbaik untuk hasil maksimal.</p>
+                        <div class="product-price">Rp 2.800.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Premium Painting" 
+                                data-product-category="Pengecatan" 
+                                data-product-price="Rp 2.800.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produk 4: Poles Mika Lampu -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/maop.jpeg" alt="Poles Mika Lampu">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Perawatan</span>
+                        <h3 class="product-title">Poles Mika Lampu</h3>
+                        <p class="product-desc">Membersihkan mika lampu yang menguning seperti baru kembali.</p>
+                        <div class="product-price">Rp 300.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Poles Mika Lampu" 
+                                data-product-category="Perawatan" 
+                                data-product-price="Rp 300.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produk 5: Ceramic Coating -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/home.jpeg" alt="Ceramic Coating">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Perlindungan</span>
+                        <h3 class="product-title">Ceramic Coating</h3>
+                        <p class="product-desc">Perlindungan cat dengan lapisan keramik tahan lama.</p>
+                        <div class="product-price">Rp 1.500.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Ceramic Coating" 
+                                data-product-category="Perlindungan" 
+                                data-product-price="Rp 1.500.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produk 6: Perbaikan Bodi -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Perbaikan Bodi">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Perbaikan</span>
+                        <h3 class="product-title">Perbaikan Bodi Mobil</h3>
+                        <p class="product-desc">Perbaikan penyok dan kerusakan bodi dengan presisi.</p>
+                        <div class="product-price">Mulai Rp 500.000</div>
+                        <!-- TOMBOL PESAN WHATSAPP -->
+                        <button class="whatsapp-order-btn" 
+                                data-product-name="Perbaikan Bodi Mobil" 
+                                data-product-category="Perbaikan" 
+                                data-product-price="Mulai Rp 500.000">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                     <div class="product-img">
+                     <img src="img/merci.jpeg" alt="Nama Produk">
+                 </div>
+                 <div class="product-content">
+                    <span class="product-category">Kategori</span>
+                    <h3 class="product-title">Nama Produk</h3>
+                    <p class="product-desc">Deskripsi produk</p>
+                    <div class="product-price">Rp Harga</div>
+                 <button class="whatsapp-order-btn"
+                     data-product-name="Nama Produk"
+                     data-product-category="Kategori"
+                    data-product-price="Rp Harga">
+                <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+             </button>
+             </div>
+            </div>
+           
+        </div>    
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION - 2 FOTO PER BARIS DI MOBILE -->
     <section id="portfolio">
         <div class="container">
             <div class="section-title">
@@ -1478,50 +1867,50 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-index="0" role="button" tabindex="0" aria-label="View Car Restoration Project">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg" alt="Car Restoration Project" loading="lazy">
+                <div class="portfolio-item" data-index="0">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04 (1).jpeg" alt="Car Restoration Project">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="1" role="button" tabindex="0" aria-label="View Car Painting Project">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg" alt="Car Painting Project" loading="lazy">
+                <div class="portfolio-item" data-index="1">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.04.jpeg" alt="Car Painting Project">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="2" role="button" tabindex="0" aria-label="View Luxury Car Repair">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg" alt="Luxury Car Repair" loading="lazy">
+                <div class="portfolio-item" data-index="2">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (1).jpeg" alt="Luxury Car Repair">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="3" role="button" tabindex="0" aria-label="View Porsche Repair Detail">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Porsche Repair Detail" loading="lazy">
+                <div class="portfolio-item" data-index="3">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Porsche Repair Detail">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="4" role="button" tabindex="0" aria-label="View Mercedes Paint Job">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg" alt="Mercedes Paint Job" loading="lazy">
+                <div class="portfolio-item" data-index="4">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (2).jpeg" alt="Mercedes Paint Job">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="5" role="button" tabindex="0" aria-label="View BMW Restoration">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg" alt="BMW Restoration" loading="lazy">
+                <div class="portfolio-item" data-index="5">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.03.03.jpeg" alt="BMW Restoration">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="6" role="button" tabindex="0" aria-label="View Car Restoration Project">
-                    <img src="img/pesut.jpeg" alt="Car Restoration Project" loading="lazy">
+                <div class="portfolio-item" data-index="6">
+                    <img src="img/pesut.jpeg" alt="Car Restoration Project">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
                 </div>
-                <div class="portfolio-item" data-index="7" role="button" tabindex="0" aria-label="View Car Restoration Project">
-                    <img src="img/merci.jpeg" alt="Car Restoration Project" loading="lazy">
+                <div class="portfolio-item" data-index="7">
+                    <img src="img/merci.jpeg" alt="Car Restoration Project">
                     <div class="portfolio-overlay">
                         <i class="fas fa-search-plus view-icon"></i>
                     </div>
@@ -1531,17 +1920,17 @@
     </section>
 
     <!-- MODAL/GALLERY UNTUK PORTFOLIO -->
-    <div class="modal" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio Gallery">
+    <div class="modal" id="portfolioModal">
         <div class="modal-content">
             <img class="modal-img" id="modalImage" src="img/WhatsApp Image 2025-12-24 at 14.03.02 (2).jpeg" alt="Portfolio Image">
-            <button class="modal-close" id="modalClose" aria-label="Close gallery">
+            <button class="modal-close" id="modalClose">
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-nav">
-                <button class="modal-prev" id="modalPrev" aria-label="Previous image">
+                <button class="modal-prev" id="modalPrev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="modal-next" id="modalNext" aria-label="Next image">
+                <button class="modal-next" id="modalNext">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -1549,7 +1938,7 @@
         </div>
     </div>
 
-    <!-- NEW PROJECTS SECTION -->
+    <!-- PROJECTS SECTION -->
     <section class="projects-section" id="projects">
         <div class="container">
             <div class="section-title">
@@ -1560,7 +1949,7 @@
             <div class="projects-slider">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="BMW Restoration" loading="lazy">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02 (1).jpeg" alt="BMW Restoration">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Full Body Painting</span>
@@ -1571,7 +1960,7 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Mercedes Painting" loading="lazy">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.02.jpeg" alt="Mercedes Painting">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Premium Painting</span>
@@ -1582,7 +1971,7 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Porsche Repair" loading="lazy">
+                        <img src="img/WhatsApp Image 2025-12-24 at 14.03.03 (3).jpeg" alt="Porsche Repair">
                     </div>
                     <div class="project-content">
                         <span class="project-category">Pemasangan Biled</span>
@@ -1599,7 +1988,7 @@
         <div class="container">
             <div class="about-container">
                 <div class="about-img">
-                    <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Our Workshop" loading="lazy">
+                    <img src="img/WhatsApp Image 2025-12-24 at 14.11.03.jpeg" alt="Our Workshop">
                 </div>
                 <div class="about-content">
                     <h2>Layanan kami</h2>
@@ -1614,7 +2003,7 @@
                         <li>Pemasangan Biled Dengan Kualitas Premium</li>
                     </ul>
                     
-                    <a href="#location" class="btn btn-accent">Book Appointment</a>
+                    <a href="#etalase" class="btn btn-accent">Lihat Etalase</a>
                 </div>
             </div>
         </div>
@@ -1650,7 +2039,7 @@
                         <i class="fas fa-spray-can"></i>
                     </div>
                     <h3>Kualitas Cat Premium</h3>
-                    <p>menggunakan cat Yang bagus .</p>
+                    <p>Menggunakan cat berkualitas tinggi untuk hasil terbaik.</p>
                 </div>
                 
                 <div class="feature-item">
@@ -1675,7 +2064,7 @@
             <div class="location-container">
                 <div class="location-card">
                     <div class="location-img">
-                        <img src="img/home.jpeg" alt="Main Workshop" loading="lazy">
+                        <img src="img/home.jpeg" alt="Main Workshop">
                     </div>
                     <div class="location-content">
                         <h3>Bengkel AUTOTRICZ X FDAUTO</h3>
@@ -1684,15 +2073,15 @@
                         <p><i class="fas fa-clock"></i> Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
                         
                         <div class="location-buttons">
-                            <a href="https://maps.app.goo.gl/UtC2nQgKNWP4Z9je8" target="_blank" rel="noopener" class="btn">Google Maps</a>
-                            <a href="https://wa.me/628983712521" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://maps.app.goo.gl/UtC2nQgKNWP4Z9je8" target="_blank" class="btn">Google Maps</a>
+                            <a href="https://wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="location-card">
                     <div class="location-img">
-                        <img src="img/maop.jpeg" alt="Branch Location" loading="lazy">
+                        <img src="img/maop.jpeg" alt="Branch Location">
                     </div>
                     <div class="location-content">
                         <h3>Bengkel Aca Coy</h3>
@@ -1701,8 +2090,8 @@
                         <p><i class="fas fa-clock"></i>Senin-Sabtu: 8:00 Pagi - 17:30 Sore</p>
                         
                         <div class="location-buttons">
-                            <a href="https://maps.app.goo.gl/qQsAXSCpdwBrS6MQ8" target="_blank" rel="noopener" class="btn">Google Maps</a>
-                            <a href="https://wa.me/628983712521" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://maps.app.goo.gl/qQsAXSCpdwBrS6MQ8" target="_blank" class="btn">Google Maps</a>
+                            <a href="https://wa.me/628983712521" target="_blank" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -1720,7 +2109,7 @@
             
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                    <div class="faq-question">
                         <span>Berapa waktu penyelesaian tipikal untuk pekerjaan pengecatan penuh?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1730,7 +2119,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                    <div class="faq-question">
                         <span>Apakah Anda menawarkan garansi untuk pekerjaan pengecatan dan perbaikan Anda?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1740,7 +2129,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                    <div class="faq-question">
                         <span>Berapa waktu penyelesaian tipikal untuk pekerjaan Pemasangan Biled</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1750,7 +2139,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                    <div class="faq-question">
                         <span>Apakah Anda menangani klaim asuransi?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1779,8 +2168,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">""</p>
-                    <p class="testimonial-author">- Andi Wijaya, Business Executive</p>
+                    <p class="testimonial-text">"Pelayanan bagus, dijelasin dengan jelas sebelum dikerjakan. Harga masih wajar."</p>
+                    <p class="testimonial-author">- Fahmi Hidayat</p>
                 </div>
             </div>
         </div>
@@ -1823,10 +2212,10 @@
                     <a href="#" class="footer-logo">AUTOTRICZ<span> X FD AUTO</span></a>
                     <p>Spesialis reparasi dan pengecatan bodi profesional dengan standar premium. Kami mengembalikan kendaraan ke kondisi aslinya dengan presisi dan hati-hati.</p>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/autotriczstation?igsh=MWN0NmcwbTBremUxYw==" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -1834,7 +2223,8 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="#promo">Promo</a></li>
+                        <li><a href="#etalase">Etalase</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -1858,6 +2248,46 @@
     </footer>
 
     <script>
+        // ====== KONFIGURASI WHATSAPP ======
+        // GANTI NOMOR INI SAJA JIKA PERLU
+        const whatsappConfig = {
+            phone: '628983712521', // Format: 62 tanpa +, tanpa 0 depan
+            company: 'AUTOTRICZ X FD AUTO'
+        };
+
+        // ====== FUNGSI UNTUK PESAN WHATSAPP ======
+        function sendWhatsAppOrder(productName, productCategory, productPrice) {
+            // Buat pesan otomatis
+            const message = `Halo ${whatsappConfig.company}!%0A%0ASaya ingin memesan layanan:%0A%0A📋 *Produk/Jasa:* ${productName}%0A🏷️ *Kategori:* ${productCategory}%0A💰 *Harga:* ${productPrice}%0A%0ATolong info lebih lanjut tentang: %0A• Estimasi waktu pengerjaan%0A• Proses pemesanan%0A• Syarat dan ketentuan%0A%0ATerima kasih!`;
+            
+            // Buat link WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappConfig.phone}?text=${message}`;
+            
+            // Buka WhatsApp di tab baru
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // ====== INISIALISASI TOMBOL WHATSAPP ======
+        function initWhatsAppButtons() {
+            // Temukan semua tombol pesan WhatsApp
+            const orderButtons = document.querySelectorAll('.whatsapp-order-btn');
+            
+            orderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Ambil data dari atribut data-*
+                    const productName = this.getAttribute('data-product-name');
+                    const productCategory = this.getAttribute('data-product-category');
+                    const productPrice = this.getAttribute('data-product-price');
+                    
+                    // Kirim pesan WhatsApp
+                    sendWhatsAppOrder(productName, productCategory, productPrice);
+                });
+            });
+            
+            console.log(`✅ ${orderButtons.length} tombol WhatsApp siap digunakan`);
+        }
+
+        // ====== FUNGSI UTAMA WEBSITE ======
         // Sticky Navbar on Scroll
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -1877,9 +2307,6 @@
             mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
-            mobileMenuBtn.setAttribute('aria-label', navLinks.classList.contains('active') 
-                ? 'Close navigation menu' 
-                : 'Open navigation menu');
         });
 
         // Close mobile menu when clicking a link
@@ -1887,45 +2314,14 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
             });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
-            }
         });
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentNode;
-                const isActive = item.classList.contains('active');
-                
-                // Close all other FAQ items
-                document.querySelectorAll('.faq-item').forEach(faqItem => {
-                    if (faqItem !== item) {
-                        faqItem.classList.remove('active');
-                        const q = faqItem.querySelector('.faq-question');
-                        if (q) q.setAttribute('aria-expanded', 'false');
-                    }
-                });
-                
-                // Toggle current item
                 item.classList.toggle('active');
-                question.setAttribute('aria-expanded', !isActive);
-            });
-            
-            // Keyboard support for FAQ
-            question.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    question.click();
-                }
             });
         });
 
@@ -1939,19 +2335,8 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    // Close mobile menu if open
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                        mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
-                    }
-                    
-                    // Calculate scroll position
-                    const headerHeight = document.getElementById('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
                     window.scrollTo({
-                        top: targetPosition,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
@@ -1998,6 +2383,110 @@
         
         // Initialize first testimonial
         changeTestimonial();
+        
+        // ========== PROMO SLIDER FUNCTIONALITY ==========
+        const promoSlider = document.getElementById('promoSlider');
+        const promoPrev = document.getElementById('promoPrev');
+        const promoNext = document.getElementById('promoNext');
+        const promoDots = document.getElementById('promoDots');
+        const promoSlides = document.querySelectorAll('.promo-slide');
+        
+        let currentPromoSlide = 0;
+        let isPromoTouching = false;
+        let startX = 0;
+        let currentX = 0;
+        
+        // Fungsi untuk update promo slider position
+        function updatePromoSlider() {
+            const slideWidth = promoSlides[0].offsetWidth + 20; // 20px gap
+            promoSlider.style.transform = `translateX(-${currentPromoSlide * slideWidth}px)`;
+            
+            // Update dots
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPromoSlide);
+            });
+        }
+        
+        // Next slide
+        promoNext.addEventListener('click', () => {
+            currentPromoSlide = (currentPromoSlide + 1) % promoSlides.length;
+            updatePromoSlider();
+        });
+        
+        // Previous slide
+        promoPrev.addEventListener('click', () => {
+            currentPromoSlide = (currentPromoSlide - 1 + promoSlides.length) % promoSlides.length;
+            updatePromoSlider();
+        });
+        
+        // Dot navigation
+        document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentPromoSlide = index;
+                updatePromoSlider();
+            });
+        });
+        
+        // Touch/swipe functionality untuk mobile
+        promoSlider.addEventListener('touchstart', (e) => {
+            isPromoTouching = true;
+            startX = e.touches[0].clientX;
+            currentX = startX;
+        }, { passive: true });
+        
+        promoSlider.addEventListener('touchmove', (e) => {
+            if (!isPromoTouching) return;
+            currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
+            
+            // Geser slider sesuai dengan touch
+            const slideWidth = promoSlides[0].offsetWidth + 20;
+            const offset = currentPromoSlide * slideWidth + diff;
+            promoSlider.style.transform = `translateX(-${offset}px)`;
+            promoSlider.style.transition = 'none';
+        }, { passive: true });
+        
+        promoSlider.addEventListener('touchend', () => {
+            if (!isPromoTouching) return;
+            isPromoTouching = false;
+            
+            const diff = startX - currentX;
+            const threshold = 50;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    // Swipe kiri - next slide
+                    currentPromoSlide = (currentPromoSlide + 1) % promoSlides.length;
+                } else {
+                    // Swipe kanan - previous slide
+                    currentPromoSlide = (currentPromoSlide - 1 + promoSlides.length) % promoSlides.length;
+                }
+            }
+            
+            updatePromoSlider();
+            promoSlider.style.transition = 'transform 0.5s ease';
+        });
+        
+        // Auto slide promo setiap 5 detik
+        let promoAutoSlide = setInterval(() => {
+            currentPromoSlide = (currentPromoSlide + 1) % promoSlides.length;
+            updatePromoSlider();
+        }, 5000);
+        
+        // Hentikan auto slide ketika hover
+        promoSlider.addEventListener('mouseenter', () => {
+            clearInterval(promoAutoSlide);
+        });
+        
+        promoSlider.addEventListener('mouseleave', () => {
+            promoAutoSlide = setInterval(() => {
+                currentPromoSlide = (currentPromoSlide + 1) % promoSlides.length;
+                updatePromoSlider();
+            }, 5000);
+        });
+        
+        // Inisialisasi promo slider
+        updatePromoSlider();
         
         // ========== PORTFOLIO MODAL/GALLERY FUNCTIONALITY ==========
         
@@ -2054,19 +2543,6 @@
                 updateModal();
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                modal.setAttribute('aria-hidden', 'false');
-            });
-            
-            // Keyboard support for portfolio items
-            item.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    currentImageIndex = index;
-                    updateModal();
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    modal.setAttribute('aria-hidden', 'false');
-                }
             });
         });
         
@@ -2074,7 +2550,6 @@
         modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            modal.setAttribute('aria-hidden', 'true');
         });
         
         // Close modal when clicking outside the image
@@ -2082,7 +2557,6 @@
             if (e.target === modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                modal.setAttribute('aria-hidden', 'true');
             }
         });
         
@@ -2107,7 +2581,6 @@
             if (e.key === 'Escape') {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                modal.setAttribute('aria-hidden', 'true');
             } else if (e.key === 'ArrowLeft') {
                 currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
                 updateModal();
@@ -2123,9 +2596,6 @@
             modalImage.src = image.src;
             modalImage.alt = image.alt;
             modalCounter.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
-            
-            // Focus management for accessibility
-            modalPrev.focus();
         }
         
         // Touch/swipe support for mobile
@@ -2175,118 +2645,39 @@
                         heroVideo.play().catch(e => console.log('Video autoplay prevented:', e));
                     }
                 }, 500);
-                
-                // Matikan video di mobile untuk menghemat baterai
-                const handleVisibilityChange = () => {
-                    if (document.hidden) {
-                        heroVideo.pause();
-                    } else {
-                        heroVideo.play().catch(e => console.log('Video play error:', e));
-                    }
-                };
-                
-                document.addEventListener('visibilitychange', handleVisibilityChange);
             }
             
-            // Optimasi performa untuk mobile
-            if (isMobile) {
-                // Defer loading gambar yang tidak terlihat
-                const lazyLoadImages = () => {
-                    const images = document.querySelectorAll('img[loading="lazy"]');
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                img.src = img.dataset.src;
-                                observer.unobserve(img);
-                            }
-                        });
-                    });
-                    
-                    images.forEach(img => {
-                        if (img.dataset.src) {
-                            observer.observe(img);
-                        }
-                    });
-                };
-                
-                // Jalankan lazy loading
-                setTimeout(lazyLoadImages, 1000);
-            }
+            // Inisialisasi tombol WhatsApp
+            initWhatsAppButtons();
         });
         
         // Touch event optimization untuk mobile
         document.addEventListener('touchstart', function() {}, {passive: true});
         
-        // Optimasi scroll untuk mobile dengan throttle
+        // Optimasi scroll untuk mobile
         let lastScrollTop = 0;
-        let ticking = false;
-        
-        function handleScroll() {
-            const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             // Hide/show navbar berdasarkan scroll direction
             if (scrollTop > lastScrollTop && scrollTop > 100) {
                 // Scroll down
-                header.style.transform = 'translateY(-100%)';
+                document.getElementById('header').style.transform = 'translateY(-100%)';
             } else {
                 // Scroll up
-                header.style.transform = 'translateY(0)';
+                document.getElementById('header').style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop;
-            
-            // Add shadow when scrolled
-            if (scrollTop > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            ticking = false;
-        }
-        
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    handleScroll();
-                });
-                ticking = true;
-            }
         }, { passive: true });
         
-        // Load images dengan Intersection Observer untuk performa yang lebih baik
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
+        // Timer untuk promo
+        function updatePromoTimers() {
+            document.getElementById('timer1').textContent = "5 hari";
+            document.getElementById('timer2').textContent = "7 hari";
+            document.getElementById('timer3').textContent = "3 hari";
         }
         
-        // Fix untuk iOS - mencegah zoom pada input focus
-        document.addEventListener('touchstart', function(event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        }, { passive: false });
-        
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: false });
+        updatePromoTimers();
     </script>
 </body>
 </html>
